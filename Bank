@@ -1,0 +1,280 @@
+Create Database Bank;
+Create table agencias(id_agencia INT NOT NULL AUTO_INCREMENT, NomeAg VARCHAR(45), codigoAg INT ,CidadeAg VARCHAR(45), PRIMARY KEY(id_agencia));
+
+
+Insert into agencias(NomeAg,CidadeAg,codigoAg) VALUES('BancodoBrasil','Manaus',0070);
+
+Insert into agencias(NomeAg,CidadeAg,codigoAg) VALUES('Itau','Paranavai',4450);
+
+Insert into agencias(NomeAg,CidadeAg,codigoAg) VALUES('Santander','SaoPaulo',9456);
+
+Insert into agencias(NomeAg,CidadeAg,codigoAg) VALUES('Bradesco','Maringa',0007);
+
+Insert into agencias(NomeAg,CidadeAg,codigoAg) VALUES('C6Bank','PortoAlegre',0912);
+
+Insert into agencias(NomeAg,CidadeAg,codigoAg) VALUES('Sicred','Graciosa',0014);
+
+Insert into agencias(NomeAg,CidadeAg,codigoAg) VALUES('C6Bank','Curitiba',9430);
+
+Insert into agencias(NomeAg,CidadeAg,codigoAg) VALUES('Inter','Brasilia',2567);
+
+Insert into agencias(NomeAg,CidadeAg,codigoAg) VALUES('Inter','BeloHorizonte',2378);
+
+Insert into agencias(NomeAg,CidadeAg,codigoAg) VALUES('PagBanc','RiodeJaneiro',7741);
+
+Insert into agencias(NomeAg,CidadeAg,codigoAg) VALUES('Caixa','Paranavai',4980);
+
+Insert into agencias(NomeAg,CidadeAg,codigoAg) VALUES('Next','Cascavel',4510);
+
+Insert into agencias(NomeAg,CidadeAg,codigoAg) VALUES('Iti','Curitiba',1338);
+
+Insert into agencias(NomeAg,CidadeAg,codigoAg) VALUES('PagBank','Goiania',4500);
+
+Insert into agencias(NomeAg,CidadeAg,codigoAg) VALUES('Nubank','PortoAlegre',4516);
+
+Insert into agencias(NomeAg,CidadeAg,codigoAg) VALUES('BancodoBrasil','Recife',8080);
+
+Insert into agencias(NomeAg,CidadeAg,codigoAg) VALUES('Next','Campinas',1011);
+
+Insert into agencias(NomeAg,CidadeAg,codigoAg) VALUES('Itau','CampoGrande',4091);
+
+Insert into agencias(NomeAg,CidadeAg,codigoAg) VALUES('Caixa','Lages',7023);
+
+
+SELECT*FROM agencias;
+
+
+
+
+Create table clientes(id_cliente Int NOT NULL AUTO_INCREMENT, nome VARCHAR(45), rua VARCHAR(45),cidade VARCHAR(45),codigoCli INT,id_agencia INT, PRIMARY KEY(id_cliente));
+
+
+ALTER TABLE clientes ADD FOREIGN KEY(id_agencia) REFERENCES agencias(id_agencia);
+
+SET FOREIGN_KEY_CHECKS=0;
+
+TRUNCATE TABLE agencias
+SET FOREIGN_KEY_CHECKS=1;
+
+
+Insert into clientes(nome,codigoCli,rua,cidade,codigoAg) VALUES('Antônio de Camargo',0089,'A','Maringa',2);
+
+Insert into clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES('Matheus dos Santos',9090,'N','Porto Alegre',3);
+
+Insert into clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES('Jéssica Pereira', 2071,'C','RiodeJaneiro',4);
+
+Insert into clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES('Mario Muller',1234,'R','EspiritoSanto',1);
+
+Insert into clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES('Soraia Saraiva',7777,'J','Cianorte',5);
+
+Insert into clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES(' Maurício Costa',0001,'K','Campinas',6);
+
+Insert into clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES('João Victor ',1010,'M','Paranavai',3);
+
+Insert into clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES('Valéria',0222,'G','Goiania',9);
+
+Insert into clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES('Diana Silva',1456,'Z','PresidentePrudente',11);
+
+Insert into clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES('Edson Ribeiro', 3456,'S','Maringa',1);
+
+Insert into clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES('Eliza Pascoal',3890,'W','Brasilia',6);
+
+Insert into clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES('Edna Decleva',1029,'D','Lages',20);
+
+Insert into clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES('Maria Clara Castanho',3098,'Y','Paranavai',7);
+
+Insert into clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES('Jessica Ribeiro',2010,'X','Rondonopolis',10);
+
+Insert into clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES('Amanda Julia',2904,'P','FozdoIguacu',15);
+
+Insert into clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES('Felipe Monteiro',6907,'B','Paranavai',16);
+
+Insert into clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES('Samuel da Cunha',0908,'V','Umuarama',7);
+
+Insert into clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES('Marcus',9039,'Z','Cianorte',8);
+
+Insert into clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES('Felipe Reus',0278,'I','Indianopolis',9);
+
+INSERT INTO clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES('Felipe Medeiros',0268,'C','Maringa',4);
+
+INSERT INTO clientes(nome,codigoCli,rua,cidade,id_agencia) VALUES('Joao Guimaraes',3468,'A','AltoParana',17);
+
+
+SELECT nome FROM clientes;
+
+
+SELECT * FROM clientes;
+
+
+
+SELECT * FROM clientes WHERE cidade LIKE '%paranavai%'
+
+OR cidade LIKE '%maringa%';
+
+
+#4
+
+SELECT * FROM clientes WHERE rua LIKE '%A'
+
+AND cidade LIKE '%altoParana';
+
+#5
+
+SELECT * FROM clientes WHERE rua Not LIKE '%C%'
+
+AND cidade Not LIKE '%maringa%';
+
+#5.1
+
+SELECT nome,codigoCli,rua,cidade,codigoAg FROM clientes WHERE rua OR cidade NOT LIKE '%C,maringa%';
+
+#6
+
+SELECT*FROM clientes WHERE cidade LIKE '%maringa%';
+
+#7
+
+SELECT clientes.nome FROM clientes
+
+INNER JOIN depositos
+
+ON clientes.codigoCli = depositos.numeroCont
+
+INNER JOIN agencias
+
+ON depositos.codigoAg = agencias.codigoAg
+
+WHERE agencias.codigoAg = 12
+
+#8
+
+SELECT agencias.nomeAg, emprestimos.quantia FROM emprestimos
+
+RIGHT JOIN agencias
+
+ON emprestimos.codigoAg = agencias.codigoAg
+
+#9
+
+SELECT COUNT(codigoCli) AS quatidadedeClientes FROM clientes;
+
+#10
+
+SELECT MAX(quantia) AS ValorMaior FROM emprestimos;
+
+#11
+
+SELECT MIN(quantia)AS ValorMenor FROM emprestimos;
+
+#12
+
+SELECT*FROM emprestimos ORDER BY 2 DESC LIMIT 2
+
+AND SUM(quantia) FROM emprestimos;
+
+#13
+
+
+
+
+
+Create table depositos(id_depositos INT NOT NULL AUTO_INCREMENT, saldo DOUBLE,codigoCli INT ,codigoAg INT, numeroCont INT, PRIMARY KEY(id_depositos));
+
+
+Alter table depositos ADD FOREIGN KEY(codigoCli) REFERENCES clientes(id_cliente);
+
+Alter TABLE depositos ADD FOREIGN KEY(codigoAg) REFERENCES agencias(id_agencia);
+
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(19.000,12019,3,2);
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(1.800,23456,4,3);
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(936,29679,1,4);
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(390,20987,5,5);
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(4.453,20987,6,6);
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(3.000,18907,3,7);
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(6.000,34567,9,8);
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(150,12345,11,9);
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(124,12000,1,10);
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(8.000,14567,2,11);
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(3.00,23890,3,12);
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(145.900,98765,4,13);
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(234,12567,1,14);
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(7.000,29056,5,15);
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(2.600,14568,6,16);
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(2.700,19046,3,17);
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(2.000,18905,9,18);
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(7.000,15890,17,31);
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(12.000,35702,4,30);
+
+Insert into depositos(saldo,numeroCont,codigoAg,codigoCli) VALUES(13.000,19034,16,26);
+
+
+
+
+Create table emprestimos(numeroEmp INT NOT NULL AUTO_INCREMENT, quantia DOUBLE,codigoCli INT ,codigoAg INT, PRIMARY KEY(numeroEmp));
+
+
+Alter table emprestimos ADD FOREIGN KEY(codigoCli) REFERENCES clientes(id_cliente);
+
+
+Alter table emprestimos ADD FOREIGN KEY(codigoAg) REFERENCES agencias(id_agencia);
+
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(9500,3,2);
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(2500,4,3);
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(4510,1,4);
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(6008,5,5);
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(8600,6,6);
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(13000,3,7);
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(55000,9,8);
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(4300,11,9);
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(590,1,10);
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(601,2,11);
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(8900,3,12);
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(1234,4,13);
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(3589,1,14);
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(1256,5,15);
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(8900,6,16);
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(24000,3,17);
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(3000,9,18);
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(4500,17,31);
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(5400,4,30);
+
+Insert into emprestimos(quantia,codigoAg,codigoCli) VALUES(9400,16,26);
+
